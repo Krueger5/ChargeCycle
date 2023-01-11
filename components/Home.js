@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View, Text, Pressable, Modal, Dimensions, ScrollView } from "react-native";
+import { StyleSheet, View, Text, Pressable, Modal, Dimensions, TouchableOpacity,} from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { LineChart } from 'react-native-chart-kit'
 
@@ -48,21 +48,15 @@ export default function Home() {
         </Pressable>
       </View>
       <View style={styles.mainContent}>
-        <Text style={{ fontSize: 22 }}>BikeForFuture</Text>
-        <ScrollView>
+        <Text style={{ fontSize: 22, paddingBottom: 30}}>So viel Strom hast du erzeugt!</Text>
+        
           <View style={styles.container}>
             <View>
-              {/*It is an Example of LineChart*/}
-              <Text
-                style={{
-                  textAlign: 'center', fontSize: 18,
-                  padding: 16,
-                  marginTop: 16,
-                }}>
-                Line Chart
-              </Text>
+              {/*example: linechart for energie gain*/}
               <LineChart data={{
-                labels: [ '5',
+                labels: [
+                '0',
+                '5',
                 '10',
                 '15',
                 '20',
@@ -71,30 +65,50 @@ export default function Home() {
                 ],
                 datasets: [
                 {
-                data: [40, 60, 10, 80, 99, 43],
+                data: [0, 20 , 50, 45, 40, 43],
                 strokeWidth: 2,
                 },
                 ],
                 }}
-                width={Dimensions.get('window').width - 16}
+                width={Dimensions.get('window').width}
                 height={400}
+                xAxisLabel="min"
                 chartConfig={{
-                backgroundColor: '#9f1414',
-                backgroundGradientFrom: '#fac82f',
-                backgroundGradientTo: '#ff8302',
-                decimalPlaces: 2,
+                backgroundColor: 'orange',
+                backgroundGradientFrom: 'orange',
+                backgroundGradientTo: 'orange',
+                
+               
+                
+                decimalPlaces: 1,
                 color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                 style: {
                 borderRadius: 16,
                 },
                 }}
+                bezier
                 style={{ marginVertical: 8,
                 borderRadius: 16,
                 }}
               />
             </View>
           </View>
-        </ScrollView>
+        <View >
+          <Text style={{
+            
+            fontSize: 22,
+            alignItems: "center",
+            paddingBottom: 30,
+            }}>
+            Gesamtmenge: Beispielwert
+          </Text>
+          <Text style={{
+            fontSize: 22,
+            alignItems: "center",
+            }}>
+              Du kannst dein Handy zu 25% aufladen
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -105,18 +119,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   calendarButtonHome: {
-    flex: 2,
+    flex: 1,
     alignItems: "flex-end",
     margin: 10,
   },
   calendarButtonActive: {
-    flex: 2,
+    flex: 1,
     alignItems: "flex-end",
     marginTop: 65,
     marginRight: 10,
   },
   mainContent: {
-    flex: 3,
+    flex: 10,
     alignItems: "center",
+    justifyContent: "flex-start",
   },
 });
