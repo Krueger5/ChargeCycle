@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
   },
+
   calendarButtonHome: {
     flex: 1,
     alignItems: "flex-end",
