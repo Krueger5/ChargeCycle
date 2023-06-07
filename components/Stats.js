@@ -1,16 +1,23 @@
-import { StyleSheet, View, Text, Dimensions  } from "react-native";
+import { StyleSheet, View, Text, Dimensions, ScrollView} from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { LineChart } from 'react-native-chart-kit';
 
 const StatsSatck = createNativeStackNavigator();
+var gesamt=1000;
+var a= gesamt/4500*100;
+var handyProzent=a.toFixed(0);
 
 export default function Stats() {
   return (
     <View style={styles.mainContent}>
-    <Text style={{ fontSize: 22, paddingBottom: 30}}>So viel Strom hast du erzeugt!</Text>
-      <View style={styles.container}>
-        <View>
-          {/*example: linechart for energie gain*/}
+      <Text style={styles.headline}>Dein Energiegewinn</Text>
+        <ScrollView style={styles.scrollView}>
+          <Text style={styles.textInfo1}>
+            Gesamt:
+          </Text>
+          <Text style={styles.textInfo2}>
+            {gesamt} Kw
+          </Text>
           <LineChart data={{
             labels: [
             '0',
@@ -20,6 +27,8 @@ export default function Stats() {
             '20',
             '25',
             '30',
+            
+
             ],
             datasets: [
             {
@@ -30,53 +39,73 @@ export default function Stats() {
             }}
             width={Dimensions.get('window').width}
             height={400}
-            xAxisLabel="min"
+            xAxisLabel="m"
             chartConfig={{
             backgroundColor: 'orange',
-            backgroundGradientFrom: 'orange',
+            backgroundGradientFrom: '#ef7f0a',
             backgroundGradientTo: 'orange',
             
-          
-            
-            decimalPlaces: 1,
+            decimalPlaces: 0,
             color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
             style: {
             borderRadius: 16,
             },
             }}
             bezier
-            style={{ marginVertical: 8,
+            style={{
+            marginVertical: 8,
             borderRadius: 16,
             }}
           />
-        </View>
-          </View>
-        <View >
-          <Text style={{
+        <View>  
+          <Text style={styles.textInfo3}>
+            Du kannst dein Handy zu {handyProzent}% aufladen
+          </Text>
+          <Text style={styles.textInfo3}>
             
-            fontSize: 22,
-            alignItems: "center",
-            paddingBottom: 30,
-            }}>
-            Gesamtmenge: Beispielwert
-          </Text>
-          <Text style={{
-            fontSize: 22,
-            alignItems: "center",
-            }}>
-              Du kannst dein Handy 25% aufladen
           </Text>
         </View>
+      </ScrollView>
   </View>
   );
 }
 
 const styles = StyleSheet.create({
   mainContent: {
-
+    flex: 10,
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingTop: 50,
+    paddingTop: 30,
   },
+
+  scrollView: {
+    backgroundColor: "orange",
+  },
+
+  headline: {
+    fontSize: 35,
+    paddingBottom: 30,
+    //color: "yellow",
+    borderRadius: 10,
+    //backgroundColor: "",
+  },
+
+  textInfo1: {
+    fontSize: 35,
+    textAlign: "center",
+    //color: "#5f1d1d",
+    paddingTop: 20,
+  },
+  textInfo2: {
+    fontSize: 30,
+    textAlign: "center",
+    //color: "#5f1d1d",
+    paddingBottom: 30,
+  },
+
+  textInfo3: {
+    fontSize: 30,
+    textAlign: "center",
+  }
 
 });

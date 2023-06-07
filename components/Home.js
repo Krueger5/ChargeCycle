@@ -9,14 +9,14 @@ export default function Home()
 {
   
   
-    insertRecord=()=>
+    /*insertRecord=()=>
     {
       var time=3;
       var duration=5;
       var volt=10;  
       var ampere=30;
 
-      var InsertAPIURL="https://10.0.2.2:80/api/insert.php";
+      var InsertAPIURL="http://192.168.2.104/api/insert.php";
       
       var headers={
         'Accept':'application/json',
@@ -44,6 +44,9 @@ export default function Home()
           alert("Error"+error);
       })
     }
+*/
+
+
 
 
   
@@ -89,22 +92,47 @@ export default function Home()
         </Pressable>
       </View>
       <View style={styles.mainContent}>
-      <Pressable 
-        style={styles.ButtonSync}
-        onPressIn={() => {
-          insertRecord
+      <Pressable
+        onPress={() => {
+          let data = {
+            time: 1683033317551,
+            ampere: 5.0,
+            volt: 2.0
+          };
+          
+          const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application.json'
+          };
+          
+          fetch("http://172.22.136.231/api/insert.php", {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data)
+          })
+          .then((response)=>response.json())
+          .then((response)=>{
+            alert(response[0].Message);
+          })
+          .catch((error)=>{
+            alert("Error --> " + error);
+          });
+          
+          
+
+          
         }}
-      >
-        <Text>SYNC</Text>
+        style={styles.ButtonSync}
         
-      </Pressable> 
-      <Button
-        onPress={
-          insertRecord()
-        }
-        title={"SYNC"}
+          
+        >
+          <Text style={styles.ButtonText}>
+            SYNC
+          </Text>  
+        </Pressable>
+        
       
-      />
+      
       
         
       </View>
@@ -134,10 +162,17 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   ButtonSync: {
-  margin: 20,
-  backgroundcolour: "orange",
-  
-
+    borderRadius: 50,
+    padding: 6,
+    marginTop: 200,
+    backgroundColor: "#fbc727",
+    width: 300,
 
   },
+  ButtonText: {
+    fontSize: 50,
+    textAlign: "center",
+
+
+  }
 });
