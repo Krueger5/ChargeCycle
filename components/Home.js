@@ -82,7 +82,7 @@ function Sync() {
       if (error) {
         console.warn("WARN: ", JSON.stringify(error));
       }
-      if (scannedDevice/*scannedDevice.id == "38:AB:41:3C:D4:6F"*/) {
+      if (scannedDevice.id == "38:AB:41:3C:D4:6F") {
         deviceScanned = true;
         console.log("Connecting to device: " + scannedDevice.name);
         scannedDevice.connect().then((device) => {
