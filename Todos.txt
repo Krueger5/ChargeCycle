@@ -1,0 +1,17 @@
+CO2 Einsparung:
+    Vergleich Auto
+    (Vergleich Bahn)
+
+Stromerzeugung:
+    durch Dynamo
+
+Geldeinsparung:
+    Stromkosten (Dynamo Strom)
+    Benzinkosten
+
+Statistik und Verlauf:
+    Durchschnittliche Werte seit Beginn pro Tag/Woche/Monat
+    Graph
+
+Ziele:
+    Erinnerungen

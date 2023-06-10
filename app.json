@@ -21,10 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.digitechnikum.ChargeCycle"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f8399ea9-802c-4ae7-b6af-dd4894559e72"
+      }
+    },
+    "plugins": [
+      "@config-plugins/react-native-ble-plx"
+    ]
   }
 }
