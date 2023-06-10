@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View, Text, Pressable, Modal, Button} from "react-native";
+import { StyleSheet, View, Text, Pressable, Modal, PermissionsAndroid} from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { BleManager } from "react-native-ble-plx";
@@ -82,7 +82,7 @@ function Sync() {
       if (error) {
         console.warn("WARN: ", JSON.stringify(error));
       }
-      if (scannedDevice.id == "38:AB:41:3C:D4:6F") {
+      if (scannedDevice/*scannedDevice.id == "38:AB:41:3C:D4:6F"*/) {
         deviceScanned = true;
         console.log("Connecting to device: " + scannedDevice.name);
         scannedDevice.connect().then((device) => {
@@ -101,7 +101,7 @@ function Sync() {
               const data = base64.decode(characteristic.value);
               console.log("Data: " + data.Text);
             });
-            // --DEBUG--
+            /* --DEBUG--
             device.services().then((services) => {
               console.log(services);
               services.forEach((service) => {
@@ -109,7 +109,7 @@ function Sync() {
                   characteristics.push(characteristic);
                 })
               })
-            })
+            })*/
           })
         })
       }
