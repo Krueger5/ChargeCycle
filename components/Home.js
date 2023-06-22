@@ -54,9 +54,9 @@ export default function Home()
         </Pressable>
       </View>
       <View style={styles.mainContent}>
-      <Pressable
-        onPress={() => {Sync()}}
-        style={styles.ButtonSync}
+        <Pressable
+          onPress={() => {Sync()}}
+          style={styles.ButtonSync}
         >
           <Text style={styles.ButtonText}>
             SYNC
@@ -101,21 +101,11 @@ function Sync() {
               const data = base64.decode(characteristic.value);
               console.log("Data: " + data.Text);
             });
-            /* --DEBUG--
-            device.services().then((services) => {
-              console.log(services);
-              services.forEach((service) => {
-                service.characteristics().then((characteristic) => {
-                  characteristics.push(characteristic);
-                })
-              })
-            })*/
           })
         })
       }
     })
   })
-  /*
   let data = {
     sessionID: 1,
     time: 1683033317551,
@@ -140,7 +130,6 @@ function Sync() {
   .catch((error)=>{
     alert("Error --> " + error);
   });
-  */
 }
 
 
