@@ -4,8 +4,8 @@ import { LineChart } from 'react-native-chart-kit';
 
 const StatsSatck = createNativeStackNavigator();
 var gesamt=1000;
-var a= gesamt/4500*100;
-var handyProzent=a.toFixed(0);
+var a= gesamt/4500*100; 
+var handyProzent=a.toFixed(1);
 
 export default function Stats() {
   return (
@@ -16,7 +16,7 @@ export default function Stats() {
             Gesamt:
           </Text>
           <Text style={styles.textInfo2}>
-            {gesamt} Kw
+            {gesamt} mAh
           </Text>
           <LineChart data={{
             labels: [
@@ -32,7 +32,7 @@ export default function Stats() {
             ],
             datasets: [
             {
-            data: [0, 20 , 50, 45, 40, 43],
+            data: [0, 2.8, 3.1, 2.7, 2.6, 2.8],
             strokeWidth: 2,
             },
             ],

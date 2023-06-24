@@ -51,15 +51,18 @@ export default function Home()
 
   
   // state for updating calendar Icon
-  const [calendarIcon, updateCalendarIcon] = useState("calendar-outline");
+ // const [calendarIcon, updateCalendarIcon] = useState("calendar-outline");
   // state for updating the calendar visibility
-  const [calendarVisibility, changeCalendarVisibility] = useState(false);
+  //const [calendarVisibility, changeCalendarVisibility] = useState(false);
 
   return (
-    <View style={styles.appContainer}>
-      {/* Modal which is displayed if calendar button is pressed, containing a calendar */}
+    <View style={styles.appContainer}>  
+
+
+ {/* <View style={styles.appContainer}>
+     
       <Modal visible={calendarVisibility}>
-        {/* calendar button */}
+       
         <View style={styles.calendarButtonActive}>
           <Pressable
             onPressIn={() => {
@@ -73,11 +76,10 @@ export default function Home()
             <Ionicons name={calendarIcon} size={26} color={"orange"} />
           </Pressable>
         </View>
-        {/* calendar component */}
+        
         <Calendar />
       </Modal>
-      {/* default home screen */}
-      {/* calendar button */}
+     
       <View style={styles.calendarButtonHome}>
         <Pressable
           onPressIn={() => {
@@ -91,13 +93,14 @@ export default function Home()
           <Ionicons name={calendarIcon} size={26} color={"orange"} />
         </Pressable>
       </View>
+        */}
       <View style={styles.mainContent}>
       <Pressable
         onPress={() => {
           let data = {
-            time: 1683033317551,
-            ampere: 5.0,
-            volt: 2.0
+            time: 202306211740728417,
+            ampere: 2.8,
+            volt: 6.1,
           };
           
           const headers = {
@@ -105,7 +108,7 @@ export default function Home()
             'Content-Type': 'application.json'
           };
           
-          fetch("http://172.22.136.231/api/insert.php", {
+          fetch("http://192.168.2.110/api/insert.php", {
             method: 'POST',
             headers: headers,
             body: JSON.stringify(data)
