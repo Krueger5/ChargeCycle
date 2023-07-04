@@ -57,82 +57,19 @@ export default function Home()
 
   return (
     <View style={styles.appContainer}>  
-
-
- {/* <View style={styles.appContainer}>
-     
-      <Modal visible={calendarVisibility}>
-       
-        <View style={styles.calendarButtonActive}>
-          <Pressable
-            onPressIn={() => {
-              updateCalendarIcon("calendar-outline");
-              changeCalendarVisibility(false);
-            }}
-            style={{
-              alignItems: "flex-end",
-            }}
-          >
-            <Ionicons name={calendarIcon} size={26} color={"orange"} />
-          </Pressable>
-        </View>
-        
-        <Calendar />
-      </Modal>
-     
-      <View style={styles.calendarButtonHome}>
-        <Pressable
-          onPressIn={() => {
-            updateCalendarIcon("calendar");
-            changeCalendarVisibility(true);
-          }}
-          style={{
-            alignItems: "flex-end",
-          }}
-        >
-          <Ionicons name={calendarIcon} size={26} color={"orange"} />
-        </Pressable>
-      </View>
-        */}
       <View style={styles.mainContent}>
-      <Pressable
-        onPress={() => {
-          let data = {
-            time: 202306211740728417,
-            ampere: 2.8,
-            volt: 6.1,
-          };
+        <Pressable
+          onPress={() => {
+            
+            }}
+          style={styles.ButtonSync}
           
-          const headers = {
-            'Accept': 'application/json',
-            'Content-Type': 'application.json'
-          };
-          
-          fetch("http://192.168.2.110/api/insert.php", {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify(data)
-          })
-          .then((response)=>response.json())
-          .then((response)=>{
-            alert(response[0].Message);
-          })
-          .catch((error)=>{
-            alert("Error --> " + error);
-          });
-          
-          
-
-          
-        }}
-        style={styles.ButtonSync}
-        
-          
-        >
-          <Text style={styles.ButtonText}>
-            SYNC
-          </Text>  
-        </Pressable>
+            
+          >
+            <Text style={styles.ButtonText}>
+              SYNC
+            </Text>  
+          </Pressable>
         
       
       
